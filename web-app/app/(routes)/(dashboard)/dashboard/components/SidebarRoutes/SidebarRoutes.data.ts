@@ -21,7 +21,7 @@ export const dataAdminSidebar = [
   {
     icon: SquareKanban,
     label: 'Manage',
-    href: '/manage',
+    href: 'dashboard/admin/cars-manager',
   },
   {
     icon: CalendarCheck,

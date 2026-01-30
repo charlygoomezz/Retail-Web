@@ -10,7 +10,7 @@ export default function LayoutDashboard({ children }: { children: React.ReactNod
       </div>
       <div className="w-full h-full xl:ml-80">
         <NavbarDashboard />
-        <div className="p-6 h-max"> {children}</div>
+        <div className="p-6 h-max">{children}</div>
       </div>
     </div>
   );
