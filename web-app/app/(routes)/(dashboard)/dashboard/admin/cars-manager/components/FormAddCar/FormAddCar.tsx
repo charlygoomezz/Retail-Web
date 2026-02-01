@@ -3,6 +3,7 @@
 import { z } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm, Controller } from 'react-hook-form';
+import axios from 'axios';
 
 import { Button } from '@/components/ui/button';
 import { Form, FormItem, FormLabel, FormControl, FormMessage } from '@/components/ui/form';
@@ -14,15 +15,21 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@
 import { formSchema } from './FormAddCar.form';
 import { UploadButton } from '@/app/utils/uploadthing';
 import { useState } from 'react';
+import { FormCarProps } from './FormAddCar.types';
+import { toast } from 'sonner';
+import { useRouter } from 'next/navigation';
 
-export function FormAddCart() {
+export function FormAddCart(props: FormCarProps) {
+  const { setOpenDialog } = props;
   const [photoUpload, setPhotoUploaded] = useState(false);
+
+  const router = useRouter();
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
       name: '',
       cv: '',
-      transmision: '',
+      transmission: '',
       engine: '',
       people: '',
       photo: '',
@@ -33,8 +40,16 @@ export function FormAddCart() {
     mode: 'onChange',
   });
 
-  const onSubmit = (values: z.infer<typeof formSchema>) => {
-    console.log(values);
+  const onSubmit = async (values: z.infer<typeof formSchema>) => {
+    setOpenDialog(false);
+    try {
+      await axios.post('/api/car', values);
+      toast.success('Car created');
+      router.refresh();
+    } catch (error) {
+      toast.error('Somenthing went wrog');
+      console.log(error);
+    }
   };
 
   const { isValid } = form.formState;
@@ -80,7 +95,7 @@ export function FormAddCart() {
 
           {/* TRANSMISSION */}
           <Controller
-            name="transmision"
+            name="transmission"
             control={form.control}
             render={({ field }) => (
               <FormItem>

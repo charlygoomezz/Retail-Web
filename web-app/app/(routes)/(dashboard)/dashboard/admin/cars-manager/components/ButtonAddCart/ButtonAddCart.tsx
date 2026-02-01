@@ -27,7 +27,7 @@ export function ButtonAddCart() {
           <DialogTitle />
           <DialogDescription asChild>
             <div>
-              <FormAddCart />
+              <FormAddCart setOpenDialog={setOpenDialog} />
             </div>
           </DialogDescription>
         </DialogHeader>

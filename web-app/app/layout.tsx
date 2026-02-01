@@ -25,7 +25,7 @@ export default function RootLayout({
         <body className={`${outfit.className} antialiased`}>
           <NextTopLoader color="#000" />
           {children}
-          <Toaster />
+          <Toaster position="top-center" />
         </body>
       </html>
     </ClerkProvider>
