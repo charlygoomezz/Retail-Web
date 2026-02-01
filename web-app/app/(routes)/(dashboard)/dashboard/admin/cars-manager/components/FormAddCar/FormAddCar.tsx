@@ -13,11 +13,11 @@ import { Input } from '@/components/ui/input';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 
 import { formSchema } from './FormAddCar.form';
-import { UploadButton } from '@/app/utils/uploadthing';
 import { useState } from 'react';
 import { FormCarProps } from './FormAddCar.types';
 import { toast } from 'sonner';
 import { useRouter } from 'next/navigation';
+import { Upload } from 'lucide-react';
 
 export function FormAddCart(props: FormCarProps) {
   const { setOpenDialog } = props;
@@ -204,18 +204,34 @@ export function FormAddCart(props: FormCarProps) {
                 <FormLabel>Car Image</FormLabel>
                 <FormControl>
                   {photoUpload ? (
-                    <span className="text-sm">Image Uploaded!</span>
+                    <span className="text-sm text-green-600 font-semibold">Image Uploaded! ✓</span>
                   ) : (
-                    <UploadButton
-                      className="rounded-lg bg-slate-600/20 text-slate-800 outline-dotted outline-3"
-                      {...field}
-                      endpoint="photo"
-                      onClientUploadComplete={res => {
-                        form.setValue('photo', res?.[0].url);
-                        setPhotoUploaded(true);
-                      }}
-                      onUploadError={(error: Error) => console.log(error)}
-                    />
+                    <label className="flex items-center justify-center gap-2 p-4 rounded-lg bg-slate-600/20 border-2 border-dashed cursor-pointer hover:bg-slate-600/30 transition">
+                      <Upload className="w-4 h-4" />
+                      <span className="text-sm">Click to upload image</span>
+                      <input
+                        type="file"
+                        accept="image/*"
+                        className="hidden"
+                        onChange={async e => {
+                          const file = e.target.files?.[0];
+                          if (!file) return;
+
+                          const formData = new FormData();
+                          formData.append('file', file);
+
+                          try {
+                            const res = await axios.post('/api/upload', formData);
+                            form.setValue('photo', res.data.secure_url);
+                            setPhotoUploaded(true);
+                            toast.success('Image uploaded successfully');
+                          } catch (error) {
+                            toast.error('Failed to upload image');
+                            console.log(error);
+                          }
+                        }}
+                      />
+                    </label>
                   )}
                 </FormControl>
                 <FormMessage />
