@@ -25,11 +25,10 @@ export function ButtonEditCar({ carData }: ButtonEditCarProps) {
       </DialogTrigger>
       <DialogContent>
         <DialogHeader>
-          <DialogTitle />
-          <DialogDescription>
-            <FormEditCar setOpenDialog={setOpenDialog} carData={carData} />
-          </DialogDescription>
+          <DialogTitle>Edit Car</DialogTitle>
+          <DialogDescription>Update the car information</DialogDescription>
         </DialogHeader>
+        <FormEditCar setOpenDialog={setOpenDialog} carData={carData} />
       </DialogContent>
     </Dialog>
   );
