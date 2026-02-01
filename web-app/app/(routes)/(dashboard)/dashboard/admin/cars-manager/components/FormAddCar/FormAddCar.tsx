@@ -47,7 +47,7 @@ export function FormAddCar(props: FormCarProps) {
       toast.success('Car created');
       router.refresh();
     } catch (error) {
-      toast.error('Somenthing went wrog');
+      toast.error('Somenthing went wrong');
       console.log(error);
     }
   };

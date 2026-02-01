@@ -40,7 +40,15 @@ export function FormEditCar({ carData, setOpenDialog }: FormEditCarProps) {
   });
 
   const onSubmit = async (values: z.infer<typeof formSchema>) => {
-    console.log('submit');
+    setOpenDialog(false);
+    try {
+      await axios.patch(`/api/car/${carData.id}/form`, values);
+      toast.success('Car edited succesfully!');
+      router.refresh();
+    } catch (error) {
+      toast.error('Somenthing went wrong');
+      console.log(error);
+    }
   };
 
   const { isValid } = form.formState;

@@ -25,6 +25,7 @@ export function ButtonEditCar({ carData }: ButtonEditCarProps) {
       </DialogTrigger>
       <DialogContent>
         <DialogHeader>
+          <DialogTitle />
           <DialogDescription>
             <FormEditCar setOpenDialog={setOpenDialog} carData={carData} />
           </DialogDescription>
