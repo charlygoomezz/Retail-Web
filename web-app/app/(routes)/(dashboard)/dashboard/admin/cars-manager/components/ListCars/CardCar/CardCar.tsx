@@ -21,6 +21,22 @@ export function CardCar({ car }: CardCarProps) {
       toast.error('Somenting went wrong');
     }
   };
+
+  const handlerPublishCar = async (publish: boolean) => {
+    try {
+      await axios.patch(`/api/car/${car.id}`, { isPublish: publish });
+      if (publish) {
+        toast.success('Car Published');
+      } else {
+        toast.success('Car Unpublished');
+      }
+      router.refresh();
+    } catch (error) {
+      console.log(error);
+      toast.error('Somenthing went wrong');
+    }
+  };
+
   return (
     <div className="relative p-1 bg-white rounded-lg shadow-md hover:shadow-lg">
       <Image src={car.photo} alt="Car Image" width={400} height={0} className="rounded-lg" />
@@ -77,11 +93,11 @@ export function CardCar({ car }: CardCarProps) {
           </div>
         </div>
         {car.isPublish ? (
-          <Button className="w-full mt-3" variant="outline" onClick={() => console.log('unpublish')}>
+          <Button className="w-full mt-3" variant="outline" onClick={() => handlerPublishCar(false)}>
             Unpublish
           </Button>
         ) : (
-          <Button className="w-full mt-3" onClick={() => console.log('publish')}>
+          <Button className="w-full mt-3" onClick={() => handlerPublishCar(true)}>
             Publish
             <Upload className="h-4 w-4 ml-2" />
           </Button>
