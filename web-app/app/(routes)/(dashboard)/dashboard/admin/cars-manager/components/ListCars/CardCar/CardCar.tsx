@@ -5,6 +5,7 @@ import { Fuel, Gauge, Gem, Trash, Upload, Users, Wrench } from 'lucide-react';
 import { CardCarProps } from './CardCar.types';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
+import { ButtonEditCar } from './ButtonEditCar';
 
 export function CardCar({ car }: CardCarProps) {
   return (
@@ -49,7 +50,7 @@ export function CardCar({ car }: CardCarProps) {
               Delete
               <Trash className="w-4 h-4 ml-2" />
             </Button>
-            <p>Button edit car</p>
+            <ButtonEditCar carData={car} />
           </div>
         </div>
         {car.isPublish ? (

@@ -12,44 +12,35 @@ import { Input } from '@/components/ui/input';
 
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 
-import { formSchema } from './FormAddCar.form';
+import { formSchema } from './FormEditCar.form';
 import { useState } from 'react';
-import { FormCarProps } from './FormAddCar.types';
 import { toast } from 'sonner';
 import { useRouter } from 'next/navigation';
 import { Upload } from 'lucide-react';
+import { FormEditCarProps } from './FormEditCar.types';
 
-export function FormAddCar(props: FormCarProps) {
-  const { setOpenDialog } = props;
+export function FormEditCar({ carData, setOpenDialog }: FormEditCarProps) {
   const [photoUpload, setPhotoUploaded] = useState(false);
 
   const router = useRouter();
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
-      name: '',
-      cv: '',
-      transmission: '',
-      engine: '',
-      people: '',
-      photo: '',
-      type: '',
-      priceDay: '',
-      isPublish: false,
+      name: carData.name,
+      cv: carData.cv,
+      transmission: carData.transmission,
+      engine: carData.engine,
+      people: carData.people,
+      photo: carData.photo,
+      type: carData.type,
+      priceDay: carData.priceDay,
+      isPublish: carData.isPublish ? carData.isPublish : false,
     },
     mode: 'onChange',
   });
 
   const onSubmit = async (values: z.infer<typeof formSchema>) => {
-    setOpenDialog(false);
-    try {
-      await axios.post('/api/car', values);
-      toast.success('Car created');
-      router.refresh();
-    } catch (error) {
-      toast.error('Somenthing went wrog');
-      console.log(error);
-    }
+    console.log('submit');
   };
 
   const { isValid } = form.formState;
@@ -206,10 +197,7 @@ export function FormAddCar(props: FormCarProps) {
                   {photoUpload ? (
                     <span className="text-sm text-green-600 font-semibold">Image Uploaded! ✓</span>
                   ) : (
-                    <label
-                      className="flex items-center justify-center gap-2 p-4 rounded-lg
-                     bg-slate-600/20 border-2 border-dashed cursor-pointer hover:bg-slate-600/30 transition"
-                    >
+                    <label className="flex items-center justify-center gap-2 p-4 rounded-lg bg-slate-600/20 border-2 border-dashed cursor-pointer hover:bg-slate-600/30 transition">
                       <Upload className="w-4 h-4" />
                       <span className="text-sm">Click to upload image</span>
                       <input
@@ -262,7 +250,7 @@ export function FormAddCar(props: FormCarProps) {
           />
 
           <Button type="submit" className="col-span-2" disabled={!isValid}>
-            Create Car
+            Edit Car
           </Button>
         </div>
       </form>
