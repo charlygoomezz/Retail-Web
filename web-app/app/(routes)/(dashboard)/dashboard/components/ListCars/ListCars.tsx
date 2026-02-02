@@ -2,14 +2,20 @@
 import { ListCarsProps } from './ListCars.types';
 import { Car } from '@prisma/client';
 import Image from 'next/image';
-import { Fuel, Gem, Heart, Users, Wrench } from 'lucide-react';
+import { Fuel, Gauge, Gem, Heart, Users, Wrench } from 'lucide-react';
 import { ModalAddReservation } from '@/components/Shared/ModalAddReservation';
+import { useLovedCars } from '@/hooks/use-loved-cars';
 
 export function ListCars({ cars }: ListCarsProps) {
+  const { addLoveItem, lovedItems, removeLovedItem } = useLovedCars();
+
   return (
     <div className="grid grid-cols-2 gap-6 lg:grid-cols-4">
       {cars.map((car: Car) => {
-        const { priceDay, photo, engine, id, people, name, transmission, type } = car;
+        const { priceDay, photo, engine, id, people, name, cv, transmission, type } = car;
+
+        const likedCar = lovedItems.some(item => item.id === car.id);
+
         return (
           <div key={id} className="p-1 rounded-lg shadow-md hover:shadow-lg">
             <Image src={photo} alt={name} width={400} height={60} className="rounded-lg" />
@@ -18,28 +24,35 @@ export function ListCars({ cars }: ListCarsProps) {
                 <p className="text-xl min-h-16 lg:min-h-fit">{name}</p>
                 <p className="">{priceDay}$ /day</p>
               </div>
-              <p className="">
+              <p className="flex items-center">
                 <Gem className="w-4 h-4 mr-2" strokeWidth={1} />
                 {type}
               </p>
-              <p className="">
+              <p className="flex items-center">
                 <Wrench className="w-4 h-4 mr-2" strokeWidth={1} />
                 {transmission}
               </p>
-              <p className="">
+              <p className="flex items-center">
                 <Users className="w-4 h-4 mr-2" strokeWidth={1} />
                 {people}
               </p>
-              <p className="">
+              <p className="flex items-center">
                 <Fuel className="w-4 h-4 mr-2" strokeWidth={1} />
                 {engine}
+              </p>
+              <p className="flex items-center">
+                <Gauge className="w-4 h-4 mr-2" strokeWidth={1} />
+                {cv}
               </p>
               <div className="flex items-center gap-x-3 w-full">
                 <div className="flex-1">
                   <ModalAddReservation car={car} />
                 </div>
 
-                <Heart className="mt-2 cursor-pointer" onClick={() => console.log('heart')} />
+                <Heart
+                  className={`mt-2 cursor-pointer ${likedCar && 'fill-black'}`}
+                  onClick={likedCar ? () => removeLovedItem(car.id) : () => addLoveItem(car)}
+                />
               </div>
             </div>
           </div>
