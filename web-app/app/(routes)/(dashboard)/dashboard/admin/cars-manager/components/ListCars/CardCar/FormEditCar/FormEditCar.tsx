@@ -39,7 +39,7 @@ export function FormEditCar({ carData, setOpenDialog }: FormEditCarProps) {
     mode: 'onChange',
   });
 
-  const onSubmit = async (values: z.infer<typeof formSchema>) => {
+  const onSubmit = async (values: z.infer<typeof formSchema>): Promise<void> => {
     setOpenDialog(false);
     try {
       await axios.patch(`/api/car/${carData.id}/form`, values);
