@@ -18,7 +18,7 @@ export function ButtonEditCar({ carData }: ButtonEditCarProps) {
   return (
     <Dialog open={openDialog} onOpenChange={setOpenDialog}>
       <DialogTrigger asChild>
-        <Button variant="outline" onClick={() => setOpenDialog(true)}>
+        <Button variant="outline" size="sm" className="w-full" onClick={() => setOpenDialog(true)}>
           Edit
           <Pencil className="w-4 h-4 ml-2" />
         </Button>

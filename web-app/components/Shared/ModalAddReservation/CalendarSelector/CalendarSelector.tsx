@@ -1,5 +1,4 @@
 'use client';
-import * as React from 'react';
 import { CalendarSelectorProps } from './CalendarSelector.types';
 import { addDays, format } from 'date-fns';
 import { DateRange } from 'react-day-picker';
@@ -15,26 +14,48 @@ export function CalendarSelector({ setDataSelected, className, carPriceDay }: Ca
     from: new Date(),
     to: addDays(new Date(), 5),
   });
+  const [error, setError] = useState<string>('');
 
   useEffect(() => {
+    if (!date?.from || !date?.to) {
+      setError('You must select a date range');
+      return;
+    }
+
+    const fromDate = new Date(date.from.getFullYear(), date.from.getMonth(), date.from.getDate());
+    const toDate = new Date(date.to.getFullYear(), date.to.getMonth(), date.to.getDate());
+
+    if (fromDate.getTime() === toDate.getTime()) {
+      setError('You must select at least 2 different days.');
+      return;
+    }
+
+    setError('');
     setDataSelected({
-      from: date?.from,
-      to: date?.to,
+      from: date.from,
+      to: date.to,
     });
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [date]);
 
   const calculateDaysBetween = (from: Date, to: Date): number => {
+    // Standardize dates to midnight to avoid time zone issues
+    const fromDate = new Date(from.getFullYear(), from.getMonth(), from.getDate());
+    const toDate = new Date(to.getFullYear(), to.getMonth(), to.getDate());
+
     const oneDay = 24 * 60 * 60 * 1000;
-    const diffInTime = to.getTime() - from.getTime();
-    return Math.round(diffInTime / oneDay);
+    const diffInTime = toDate.getTime() - fromDate.getTime();
+    const days = Math.ceil(diffInTime / oneDay);
+
+    return Math.max(days, 1);
   };
   const daysBetween = date?.from && date?.to ? calculateDaysBetween(date.from, date.to) : 0;
 
   return (
     <>
       <div className={cn('grid gap-2', className)}>
-        {date?.from && date?.to && (
+        {error && <p className="text-red-500 text-sm font-medium">{error}</p>}
+        {date?.from && date?.to && !error && (
           <>
             <p className="mt-4 text-lg text-black">Total days {daysBetween}</p>
             <p className="mb-4 text-md">Total price {daysBetween * +carPriceDay}$ (Included taxes)</p>

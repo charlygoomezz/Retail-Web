@@ -10,7 +10,7 @@ export function ListCars({ cars }: ListCarsProps) {
   const { addLoveItem, lovedItems, removeLovedItem } = useLovedCars();
 
   return (
-    <div className="grid grid-cols-2 gap-6 lg:grid-cols-4">
+    <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 my-4 lg:grid-cols-4">
       {cars.map((car: Car) => {
         const { priceDay, photo, engine, id, people, name, cv, transmission, type } = car;
 

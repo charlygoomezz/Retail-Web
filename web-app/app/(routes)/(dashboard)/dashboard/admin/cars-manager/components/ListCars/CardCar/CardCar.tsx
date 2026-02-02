@@ -84,8 +84,8 @@ export function CardCar({ car }: CardCarProps) {
             </p>
           </div>
 
-          <div className="flex justify-between mt-3 ">
-            <Button variant="outline" onClick={deleteCar}>
+          <div className="grid grid-cols-2 gap-2 mt-3">
+            <Button variant="outline" size="sm" onClick={deleteCar} className="w-full">
               Delete
               <Trash className="w-4 h-4 ml-2" />
             </Button>
