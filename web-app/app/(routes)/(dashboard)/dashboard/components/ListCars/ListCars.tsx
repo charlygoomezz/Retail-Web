@@ -34,8 +34,11 @@ export function ListCars({ cars }: ListCarsProps) {
                 <Fuel className="w-4 h-4 mr-2" strokeWidth={1} />
                 {engine}
               </p>
-              <div className="flex items-center justify-center gap-x-3">
-                <ModalAddReservation car={car} />
+              <div className="flex items-center gap-x-3 w-full">
+                <div className="flex-1">
+                  <ModalAddReservation car={car} />
+                </div>
+
                 <Heart className="mt-2 cursor-pointer" onClick={() => console.log('heart')} />
               </div>
             </div>

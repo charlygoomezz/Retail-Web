@@ -41,7 +41,7 @@ export function CalendarSelector({ setDataSelected, className, carPriceDay }: Ca
           </>
         )}
         <Popover>
-          <PopoverTrigger>
+          <PopoverTrigger asChild>
             <Button
               id="date"
               variant="outline"
