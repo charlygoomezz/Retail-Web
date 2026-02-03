@@ -1,4 +1,4 @@
-import { BookAudio, Calendar, CalendarCheck, Car, Heart, SquareKanban } from 'lucide-react';
+import { BookAudio, CalendarCheck, Car, Heart, SquareKanban } from 'lucide-react';
 
 export const dataGeneralSidebar = [
   {
