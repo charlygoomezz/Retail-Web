@@ -21,11 +21,11 @@ export const dataAdminSidebar = [
   {
     icon: SquareKanban,
     label: 'Manage',
-    href: 'dashboard/admin/cars-manager',
+    href: '/dashboard/admin/cars-manager',
   },
   {
     icon: BookAudio,
     label: 'All Reserves',
-    href: 'dashboard/admin/reserves-admin',
+    href: '/dashboard/admin/reserves-admin',
   },
 ];
