@@ -23,26 +23,26 @@ export const dataFleet = [
 
 export const dataFirstBlockOurFleet = [
   {
-    url: 'car-1.jpg',
+    url: 'car-1.avif',
   },
   {
-    url: 'car-1.jpg',
+    url: 'car-2.avif',
   },
   {
-    url: 'car-1.jpg',
+    url: 'car-3.avif',
   },
 ];
 export const dataSecondBlockOurFleet = [
   {
-    url: 'car-1.jpg',
+    url: 'car-4.avif',
   },
   {
-    url: 'car-1.jpg',
+    url: 'car-5.avif',
   },
   {
-    url: 'car-1.jpg',
+    url: 'car-6.avif',
   },
   {
-    url: 'car-1.jpg',
+    url: 'car-7.avif',
   },
 ];

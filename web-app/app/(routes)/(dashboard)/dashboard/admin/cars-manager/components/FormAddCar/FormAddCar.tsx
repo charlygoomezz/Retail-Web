@@ -10,7 +10,13 @@ import { Form, FormItem, FormLabel, FormControl, FormMessage } from '@/component
 
 import { Input } from '@/components/ui/input';
 
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from '@/components/ui/select';
 
 import { formSchema } from './FormAddCar.form';
 import { useState } from 'react';
@@ -160,7 +166,7 @@ export function FormAddCar(props: FormCarProps) {
                   <SelectContent>
                     <SelectItem value="gas">Gas</SelectItem>
                     <SelectItem value="hybrid">Hybrid</SelectItem>
-                    <SelectItem value="electirc">Electric</SelectItem>
+                    <SelectItem value="electric">Electric</SelectItem>
                     <SelectItem value="diesel">Diesel</SelectItem>
                   </SelectContent>
                 </Select>

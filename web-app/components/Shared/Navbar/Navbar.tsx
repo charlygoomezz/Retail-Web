@@ -5,6 +5,7 @@ import { useAuth, UserButton } from '@clerk/nextjs';
 import { Heart, User } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
+import { isAdmin } from '@/lib/isAdmin';
 
 export function Navbar() {
   const { userId } = useAuth();
@@ -19,7 +20,7 @@ export function Navbar() {
 
         <div className="flex items-center justify-center gap-x-7">
           <Link href="/cars">List cars</Link>
-          <Link href="/dashboard">Dashboard</Link>
+          {isAdmin(userId) && <Link href="/dashboard">Dashboard</Link>}
           {userId ? (
             <>
               <Link href="/loved-cars">

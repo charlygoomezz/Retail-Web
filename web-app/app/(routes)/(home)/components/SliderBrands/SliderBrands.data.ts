@@ -1,35 +1,23 @@
 export const dataBrands = [
   {
-    url: 'AstonMartinLogo.png',
+    url: 'audi.png',
   },
   {
-    url: 'Audi-Logo_2016.png',
+    url: 'bmw.png',
   },
   {
-    url: 'BMW.png',
+    url: 'cupra.png',
   },
   {
-    url: 'Ferrari-Logo.png',
+    url: 'porsche.png',
   },
   {
-    url: 'Group (1).png',
+    url: 'mercedes.png',
   },
   {
-    url: 'Group.png',
+    url: 'volvo.png',
   },
   {
-    url: 'Maserati_logo.png',
-  },
-  {
-    url: 'McLaren_logo 1.png',
-  },
-  {
-    url: 'Mercedes-Benz_free_logo.png',
-  },
-  {
-    url: 'Rolls-Royce_Motor_Cars_logo.png',
-  },
-  {
-    url: 'lamborghini 1.png',
+    url: 'peugeot.png',
   },
 ];

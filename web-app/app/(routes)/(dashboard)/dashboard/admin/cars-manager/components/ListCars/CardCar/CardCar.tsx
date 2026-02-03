@@ -93,7 +93,11 @@ export function CardCar({ car }: CardCarProps) {
           </div>
         </div>
         {car.isPublish ? (
-          <Button className="w-full mt-3" variant="outline" onClick={() => handlerPublishCar(false)}>
+          <Button
+            className="w-full mt-3"
+            variant="outline"
+            onClick={() => handlerPublishCar(false)}
+          >
             Unpublish
           </Button>
         ) : (

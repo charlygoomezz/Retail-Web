@@ -59,7 +59,7 @@ export function FiltersCars({ clearFilters, setFilters, filters }: FiltersCarsPr
             <SelectLabel>Motor</SelectLabel>
             <SelectItem value="gas">Gas</SelectItem>
             <SelectItem value="hybrid">Hybrid</SelectItem>
-            <SelectItem value="electirc">Electric</SelectItem>
+            <SelectItem value="electric">Electric</SelectItem>
             <SelectItem value="diesel">Diesel</SelectItem>
           </SelectGroup>
         </SelectContent>
