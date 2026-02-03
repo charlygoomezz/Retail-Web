@@ -1,6 +1,6 @@
 export type ReavealProps = {
   children: React.ReactNode;
-  clasName?: string;
+  className?: string;
   position: 'right' | 'bottom';
-  delay: number;
+  delay?: number;
 };

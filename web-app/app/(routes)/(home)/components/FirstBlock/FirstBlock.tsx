@@ -1,10 +1,12 @@
+'use client';
+import { Reveal } from '@/components/Shared/Reveal';
 import Image from 'next/image';
 import React from 'react';
 
 export function FirstBlock() {
   return (
     <div className="grid lg:grid-cols-2 lg:px-0 lg:py-24 items-center">
-      <div className="p-6 lg:pl-40">
+      <Reveal className="p-6 lg:pl-40" position="bottom">
         <h1 className="text-6xl lg:text-8xl font-bold">
           Premium
           <span className="block">Car Rental </span> in Spain
@@ -12,10 +14,10 @@ export function FirstBlock() {
         <p className="text-lg mt-2 lg:mt-5 lg:text-lg max-w-sm">
           Dont deny yourself pleasure of diving the best premium cars from around the world here and now
         </p>
-      </div>
-      <div className="flex justify-center">
+      </Reveal>
+      <Reveal className="flex justify-center" position="right">
         <Image src="/images/aston-martin.png" alt="Rent cars" width={800} height={800} priority />
-      </div>
+      </Reveal>
     </div>
   );
 }
