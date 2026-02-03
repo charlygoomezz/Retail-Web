@@ -32,8 +32,8 @@ export function TableReserves({ orders }: TableReservesProps) {
         {orders.map(order => (
           <TableRow key={order.id}>
             <TableCell className="font-medium">{order.carName}</TableCell>
-            <TableCell>{new Date(order.orderDate).toLocaleDateString()}</TableCell>
-            <TableCell>{new Date(order.orderEndDate).toLocaleDateString()}</TableCell>
+            <TableCell>{new Date(order.orderDate).toLocaleDateString('en-US')}</TableCell>
+            <TableCell>{new Date(order.orderEndDate).toLocaleDateString('en-US')}</TableCell>
             <TableCell>
               <div className="p-2 text-white bg-green-600 rounded-lg w-fit">{order.status}</div>
             </TableCell>
