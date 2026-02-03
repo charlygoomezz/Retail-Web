@@ -4,7 +4,7 @@ import { Reveal } from '@/components/Shared/Reveal';
 export function Features() {
   return (
     <div className="max-w-6xl mx-auto p-6 lg:py-40">
-      <h3 className="text-4xl lg:text-6xl font-bold">Key Features</h3>
+      <h3 className="text-5xl lg:text-6xl font-bold">Key Features</h3>
       <p className="max-w-lg mt-5 lg:mt-10 lg:mb-16 text-xl">
         We are all about our clients conform and safety. That´s why we provide the best service you can image
       </p>
