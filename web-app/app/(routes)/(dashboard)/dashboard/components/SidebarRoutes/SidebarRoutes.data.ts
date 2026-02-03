@@ -1,4 +1,4 @@
-import { Calendar, CalendarCheck, Car, Heart, SquareKanban } from 'lucide-react';
+import { BookAudio, Calendar, CalendarCheck, Car, Heart, SquareKanban } from 'lucide-react';
 
 export const dataGeneralSidebar = [
   {
@@ -7,9 +7,9 @@ export const dataGeneralSidebar = [
     href: '/dashboard',
   },
   {
-    icon: Calendar,
-    label: 'Calendar',
-    href: '/calendar',
+    icon: CalendarCheck,
+    label: 'Reserves',
+    href: '/reserves',
   },
   {
     icon: Heart,
@@ -24,8 +24,8 @@ export const dataAdminSidebar = [
     href: 'dashboard/admin/cars-manager',
   },
   {
-    icon: CalendarCheck,
-    label: 'Reserves',
-    href: '/reserves',
+    icon: BookAudio,
+    label: 'All Reserves',
+    href: 'dashboard/admin/reserves-admin',
   },
 ];
