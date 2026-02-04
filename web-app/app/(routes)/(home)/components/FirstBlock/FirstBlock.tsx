@@ -8,10 +8,11 @@ export function FirstBlock() {
       <Reveal className="p-6 lg:pl-40" position="bottom">
         <h1 className="text-6xl md:text-7xl lg:text-8xl font-bold">
           Premium
-          <span className="block">Rental Cars </span> in Spain
+          <span className="block">Rental Cars </span>
         </h1>
         <p className="text-lg mt-2 lg:mt-5 lg:text-lg max-w-sm">
-          Dont deny yourself pleasure of diving the best premium cars from around the world here and now
+          Dont deny yourself pleasure of diving the best premium cars from around the world here and
+          now
         </p>
       </Reveal>
       <Reveal className="flex justify-center" position="right">

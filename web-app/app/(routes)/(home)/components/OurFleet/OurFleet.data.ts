@@ -5,7 +5,7 @@ export const dataFleet = [
   },
   {
     name: 'SUV',
-    active: false,
+    active: true,
   },
   {
     name: 'Coupe',
@@ -17,7 +17,7 @@ export const dataFleet = [
   },
   {
     name: 'Luxury',
-    active: true,
+    active: false,
   },
 ];
 

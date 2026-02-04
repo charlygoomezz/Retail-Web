@@ -9,7 +9,7 @@ export default function AuthLayout({ children }: { children: React.ReactNode }) 
         items-center lg:flex-col"
       >
         <Image src="/logo.svg" alt="logo" width={80} height={80} />
-        <h1 className="text-xl font-bold">Cars</h1>
+        <h1 className="text-xl font-bold">Renting Luxe</h1>
       </div>
     </div>
   );

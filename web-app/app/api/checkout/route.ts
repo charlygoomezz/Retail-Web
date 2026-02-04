@@ -1,5 +1,5 @@
 import Stripe from 'stripe';
-import { NextResponse } from 'next/server';
+import { NextRequest, NextResponse } from 'next/server';
 
 import { stripe } from '@/lib/stripe';
 import { db } from '@/lib/db';
@@ -11,20 +11,7 @@ const corsHeaders = {
   'Access-Control-Allow-Headers': 'Content-Type, Authorization',
 };
 
-export async function POST(
-  req: Request,
-  {
-    params,
-  }: {
-    params: {
-      carId: string;
-      priceDay: string;
-      startDate: Date;
-      endDate: Date;
-      carName: string;
-    };
-  }
-) {
+export async function POST(req: NextRequest) {
   const { userId } = await auth();
   const { carId, priceDay, startDate, endDate, carName } = await req.json();
 

@@ -9,7 +9,7 @@ export function LogoDashboard() {
     min-h-20 px-6"
     >
       <Image src="/logo.svg" alt="logo" width={30} height={30} priority />
-      <h1 className="text-xl font-bold">Web</h1>
+      <h1 className="text-xl font-bold">Renting Luxe</h1>
     </Link>
   );
 }

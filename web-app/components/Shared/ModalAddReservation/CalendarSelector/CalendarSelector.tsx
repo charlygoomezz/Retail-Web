@@ -9,7 +9,11 @@ import { useState, useEffect } from 'react';
 import { cn } from '@/lib/utils';
 import { CalendarIcon } from 'lucide-react';
 
-export function CalendarSelector({ setDataSelected, className, carPriceDay }: CalendarSelectorProps) {
+export function CalendarSelector({
+  setDataSelected,
+  className,
+  carPriceDay,
+}: CalendarSelectorProps) {
   const [date, setDate] = useState<DateRange | undefined>({
     from: new Date(),
     to: addDays(new Date(), 5),
@@ -58,7 +62,9 @@ export function CalendarSelector({ setDataSelected, className, carPriceDay }: Ca
         {date?.from && date?.to && !error && (
           <>
             <p className="mt-4 text-lg text-black">Total days {daysBetween}</p>
-            <p className="mb-4 text-md">Total price {daysBetween * +carPriceDay}$ (Included taxes)</p>
+            <p className="mb-4 text-md">
+              Total price {daysBetween * +carPriceDay}$ (Included taxes)
+            </p>
           </>
         )}
         <Popover>
@@ -66,7 +72,10 @@ export function CalendarSelector({ setDataSelected, className, carPriceDay }: Ca
             <Button
               id="date"
               variant="outline"
-              className={cn('justify-start text-left font-normal', !date && 'text-muted-foreground')}
+              className={cn(
+                'justify-start text-left font-normal',
+                !date && 'text-muted-foreground'
+              )}
             >
               <CalendarIcon className="w-4 h-4 mr-2" />
               {date?.from ? (
