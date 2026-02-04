@@ -3,7 +3,7 @@ export const dataBrands = [
     url: 'audi.png',
   },
   {
-    url: 'bmw.png',
+    url: 'BMW.png',
   },
   {
     url: 'cupra.png',
