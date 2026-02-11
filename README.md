@@ -56,10 +56,10 @@ CLERK_SECRET_KEY=your_clerk_secret_key
 # Database connection (Neon PostgreSQL)
 DATABASE_URL='your_database_connection_string'
 
-# Stripe Payment secret key (para backend)
+# Stripe Payment secret key (backend)
 STRIPE_API_KEY=your_stripe_secret_key
 
-# Admin user id para diferenciar admins (opcional, pero muy recomendable)
+# Admin user id (optional, but recomended)
 NEXT_PUBLIC_ADMINISTRATOR=clerk_user_id_for_admin_role
 ```
  Make sure to replace the placeholder values with your actual keys and URLs.
